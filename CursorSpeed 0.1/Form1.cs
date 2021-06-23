@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Management;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -26,6 +27,14 @@ namespace CursorSpeed_0._1
             InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
             label1.Text = string.Format("Ponteiro antigo: {0}", InfoCursor.GetOldSensi);
             InfoCursor.CheckKeyboard = MouseOption.GetAcelerationKeyBoard() > 0 || MouseOption.GetDelayKeyBoard() > 0;
+            if (Windows().Contains("Windows 7") ||
+                Windows().Contains("Windows XP") ||
+                Windows().Contains("Windows 2000") ||
+                Windows().Contains("Windows 95") ||
+               Windows().Contains("Windows 98"))
+            {
+                button2.Enabled = false;
+            }
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -153,13 +162,16 @@ namespace CursorSpeed_0._1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (MouseOption.SetPoimprovepointer(1) == 1)
+            if (MouseOption.SetPoimprovepointer(0) == 1)
             {
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Mouse", true))
                 {
                     key.SetValue("MouseThreshold1", 0, RegistryValueKind.String);
                     key.SetValue("MouseThreshold2", 0, RegistryValueKind.String);
-                    key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 192, 204, 192, 00, 00, 00, 00, 00, 80, 99, 19, 00, 00, 00, 00, 00, 40, 66, 26, 00, 00, 00, 00, 00, 00, 33, 33, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+                    //key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 192, 204, 192, 00, 00, 00, 00, 00, 80, 99, 19, 00, 00, 00, 00, 00, 40, 66, 26, 00, 00, 00, 00, 00, 00, 33, 33, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+                    //key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 38, 00, 00, 00, 00, 00, 00, 00, 70, 00, 00, 00, 00, 00, 00, 00, 168, 00, 00, 00, 00, 00, 00, 00, 224, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+
+                    key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 240, 255, 15, 00, 00, 00, 00, 00, 224, 255, 31, 00, 00, 00, 00, 00, 208, 255, 47, 00, 00, 00, 00, 00, 192, 255, 63, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 38, 00, 00, 00, 00, 00, 00, 00, 70, 00, 00, 00, 00, 00, 00, 00, 168, 00, 00, 00, 00, 00, 00, 00, 224, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
@@ -198,6 +210,24 @@ namespace CursorSpeed_0._1
             {
                 MessageBox.Show("Você já alterou essa função.");
             }
+        }
+        public static string Windows()
+        {
+            string r = "";
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem"))
+            {
+                ManagementObjectCollection information = searcher.Get();
+                if (information != null)
+                {
+                    foreach (ManagementObject obj in information)
+                    {
+                        r = obj["Caption"].ToString() + " - " + obj["OSArchitecture"].ToString();
+                    }
+                }
+                r = r.Replace("NT 5.1.2600", "XP");
+                r = r.Replace("NT 5.2.3790", "Server 2003");
+            }
+            return r;
         }
     }
 }
