@@ -30,35 +30,36 @@ namespace CursorSpeed_0._1
             label4.Text = string.Concat(trackBar1.Value);
         }
 
-        private void Speed_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ChangerFctn();
-            }
-        }
+
         private void ChangerFctn()
         {
+
             if (checkBox3.Checked)
             {
                 MessageBox.Show("O Botão Backup só funciona se você desejar sair do programa sem perder nada, das configurações anteriores. \n" +
                     "ajuda: ative o botão backup e feche o programa.");
                 return;
             }
-
-            if (InfoCursor.GetNewSensi > 0)
+            if (toolStripComboBox1.SelectedIndex > 0)
             {
-                MouseOption.SetMouseSpeed(trackBar1.Value);
-                label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
-                if (!checkBox2.Checked)
+                if (InfoCursor.GetNewSensi > 0)
                 {
-                    MouseOption.SetAcelerationMouse();
+                    MouseOption.SetMouseSpeed(trackBar1.Value);
+                    label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
+                    if (!checkBox2.Checked)
+                    {
+                        MouseOption.SetAcelerationMouse();
+                    }
+                    MessageBox.Show("Função Alterada com sucesso.");
                 }
-                MessageBox.Show("Função Alterada com sucesso.");
+                else
+                {
+                    MessageBox.Show("Você precisa realizar alguma função para ocorrer a mudança.");
+                }
             }
             else
             {
-                MessageBox.Show("Você precisa realizar alguma função para ocorrer a mudança.");
+                MessageBox.Show("Escolha um botão pra suspender nas configurações.");
             }
         }
 
@@ -68,6 +69,20 @@ namespace CursorSpeed_0._1
         }
 
         private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ChangerFctn();
+            }
+        }
+        private void Speed_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ChangerFctn();
+            }
+        }
+        private void trackBar1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -130,20 +145,23 @@ namespace CursorSpeed_0._1
 
         private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string[] Keys = Enum.GetNames(typeof(Keys));
-            for (int i = 0; i < Keys.Length; i++)
+            if (toolStripComboBox1.SelectedIndex > 0)
             {
-                Application.DoEvents();
-                if (Keys[i] == (string)toolStripComboBox1.SelectedItem)
+                string[] Keys = Enum.GetNames(typeof(Keys));
+                for (int i = 0; i < Keys.Length; i++)
                 {
-                    object value = Enum.Parse(typeof(Keys), Keys[i]);
-                    bool isRegistry = RegisterHotKey(Handle, 1, 0x0000, (int)value);
-                    if (isRegistry)
+                    Application.DoEvents();
+                    if (Keys[i] == (string)toolStripComboBox1.SelectedItem)
                     {
-                        toolStripComboBox1.Enabled = false;
-                        MessageBox.Show(string.Format("Tecla suspender adicionada com sucesso. {0}", (Keys)value));
+                        object value = Enum.Parse(typeof(Keys), Keys[i]);
+                        bool isRegistry = RegisterHotKey(Handle, 1, 0x0000, (int)value);
+                        if (isRegistry)
+                        {
+                            toolStripComboBox1.Enabled = false;
+                            MessageBox.Show(string.Format("Tecla suspender adicionada com sucesso. {0}", (Keys)value));
+                            break;
+                        }
                     }
-                    break;
                 }
             }
         }

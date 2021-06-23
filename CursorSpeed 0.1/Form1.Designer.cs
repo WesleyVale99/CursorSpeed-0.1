@@ -61,6 +61,7 @@ namespace CursorSpeed_0._1
             this.trackBar1.TabIndex = 0;
             this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trackBar1_KeyDown);
             // 
             // button1
             // 
@@ -196,7 +197,7 @@ namespace CursorSpeed_0._1
             this.botãoSuspenderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1});
             this.botãoSuspenderToolStripMenuItem.Name = "botãoSuspenderToolStripMenuItem";
-            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.botãoSuspenderToolStripMenuItem.Text = "Botão Suspender";
             // 
             // toolStripComboBox1
@@ -230,7 +231,7 @@ namespace CursorSpeed_0._1
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Speed";
-            this.Text = "Cursor Speed 0.1";
+            this.Text = "Cursor Speed 0.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Speed_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Speed_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Speed_MouseMove);
