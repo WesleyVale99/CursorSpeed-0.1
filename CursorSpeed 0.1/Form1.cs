@@ -12,7 +12,6 @@ namespace CursorSpeed_0._1
         {
             InitializeComponent();
             new Thread(new ThreadStart(LoadInfo)).Start();
-            RegisterHotKey(Handle, 1, 0x0000, (int)Keys.X);
         }
 
         private void button1_Click(object sender, EventArgs e)
