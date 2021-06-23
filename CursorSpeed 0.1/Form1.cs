@@ -33,7 +33,6 @@ namespace CursorSpeed_0._1
 
         private void ChangerFctn()
         {
-
             if (checkBox3.Checked)
             {
                 MessageBox.Show("O Botão Backup só funciona se você desejar sair do programa sem perder nada, das configurações anteriores. \n" +
@@ -115,7 +114,8 @@ namespace CursorSpeed_0._1
                         MouseOption.SetMouseSpeed(10);
                         trackBar1.Value = 10;
                         label2.Text = string.Format("Ponteiro novo: {0}", 10);
-                        label4.Text = string.Concat(trackBar1.Value);
+                        label4.Text = string.Concat(trackBar1.Value); Cursor.Hide();
+                 
                     }
                     else
                     {
@@ -124,6 +124,7 @@ namespace CursorSpeed_0._1
                         trackBar1.Value = InfoCursor.GetNewSensi;
                         label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
                         label4.Text = string.Concat(trackBar1.Value);
+                        Cursor.Show();
                     }
                 }
             }
