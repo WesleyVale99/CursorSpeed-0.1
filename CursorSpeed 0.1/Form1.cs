@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -21,7 +22,10 @@ namespace CursorSpeed_0._1
         private void LoadInfo()
         {
             InfoCursor.GetOldSensi = MouseOption.GetMouseSpeed();
+            InfoCursor.GetPointerAceleration = MouseOption.GetPointerAcelerarion();
+           InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
             label1.Text = string.Format("Ponteiro antigo: {0}", InfoCursor.GetOldSensi);
+            InfoCursor.CheckKeyboard = MouseOption.GetAcelerationKeyBoard() > 0 || MouseOption.GetDelayKeyBoard() > 0;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -29,27 +33,16 @@ namespace CursorSpeed_0._1
             InfoCursor.GetNewSensi = trackBar1.Value;
             label4.Text = string.Concat(trackBar1.Value);
         }
-
-
         private void ChangerFctn()
         {
-            if (checkBox3.Checked)
-            {
-                MessageBox.Show("O Botão Backup só funciona se você desejar sair do programa sem perder nada, das configurações anteriores. \n" +
-                    "ajuda: ative o botão backup e feche o programa.");
-                return;
-            }
             if (toolStripComboBox1.SelectedIndex > 0)
             {
                 if (InfoCursor.GetNewSensi > 0)
                 {
                     MouseOption.SetMouseSpeed(trackBar1.Value);
                     label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
-                    if (!checkBox2.Checked)
-                    {
-                        MouseOption.SetAcelerationMouse();
-                    }
                     MessageBox.Show("Função Alterada com sucesso.");
+                    // WindowState = FormWindowState.Minimized;
                 }
                 else
                 {
@@ -58,7 +51,7 @@ namespace CursorSpeed_0._1
             }
             else
             {
-                MessageBox.Show("Escolha um botão pra suspender nas configurações.");
+                MessageBox.Show("Escolha um botão de suspender nas configurações.");
             }
         }
 
@@ -88,15 +81,6 @@ namespace CursorSpeed_0._1
                 ChangerFctn();
             }
         }
-
-        private void Speed_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (checkBox3.Checked)
-            {
-                MouseOption.SetMouseSpeed(InfoCursor.GetOldSensi);
-                MessageBox.Show("Seu Mouse voltou ao padrão que você definiu, antes de usar esse programa.");
-            }
-        }
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc); protected override void WndProc(ref Message m)
         {
@@ -115,7 +99,7 @@ namespace CursorSpeed_0._1
                         trackBar1.Value = 10;
                         label2.Text = string.Format("Ponteiro novo: {0}", 10);
                         label4.Text = string.Concat(trackBar1.Value); Cursor.Hide();
-                 
+
                     }
                     else
                     {
@@ -164,6 +148,47 @@ namespace CursorSpeed_0._1
                         }
                     }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (MouseOption.SetPoimprovepointer(1) == 1)
+            {
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Mouse", true))
+                {
+                    key.SetValue("MouseThreshold1", 0, RegistryValueKind.String);
+                    key.SetValue("MouseThreshold2", 0, RegistryValueKind.String);
+                    key.Close();
+                }
+                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MouseOption.SetMouseSpeed(10);
+            trackBar1.Value = 10;
+            label2.Text = string.Format("Ponteiro novo: {0}", trackBar1.Value);
+            label4.Text = string.Concat(trackBar1.Value);
+            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Computador\HKEY_CURRENT_USER\Control Panel\Mouse", true))
+            {
+                key.SetValue("MouseThreshold1", 6);
+                key.SetValue("MouseThreshold2", 16);
+            }
+            MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (InfoCursor.CheckKeyboard)
+            {
+                MouseOption.SetAcelerationKeyBoard(0, 0);
+                MessageBox.Show("Função Alterada com sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Você já alterou essa função.");
             }
         }
     }
