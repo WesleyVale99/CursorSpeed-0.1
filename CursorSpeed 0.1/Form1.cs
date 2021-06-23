@@ -23,7 +23,7 @@ namespace CursorSpeed_0._1
         {
             InfoCursor.GetOldSensi = MouseOption.GetMouseSpeed();
             InfoCursor.GetPointerAceleration = MouseOption.GetPointerAcelerarion();
-           InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
+            InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
             label1.Text = string.Format("Ponteiro antigo: {0}", InfoCursor.GetOldSensi);
             InfoCursor.CheckKeyboard = MouseOption.GetAcelerationKeyBoard() > 0 || MouseOption.GetDelayKeyBoard() > 0;
         }
@@ -159,6 +159,8 @@ namespace CursorSpeed_0._1
                 {
                     key.SetValue("MouseThreshold1", 0, RegistryValueKind.String);
                     key.SetValue("MouseThreshold2", 0, RegistryValueKind.String);
+                    key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 192, 204, 192, 00, 00, 00, 00, 00, 80, 99, 19, 00, 00, 00, 00, 00, 40, 66, 26, 00, 00, 00, 00, 00, 00, 33, 33, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+                    key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 38, 00, 00, 00, 00, 00, 00, 00, 70, 00, 00, 00, 00, 00, 00, 00, 168, 00, 00, 00, 00, 00, 00, 00, 224, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
                 MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
@@ -171,12 +173,18 @@ namespace CursorSpeed_0._1
             trackBar1.Value = 10;
             label2.Text = string.Format("Ponteiro novo: {0}", trackBar1.Value);
             label4.Text = string.Concat(trackBar1.Value);
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(@"Computador\HKEY_CURRENT_USER\Control Panel\Mouse", true))
+            if (MouseOption.SetPoimprovepointer(1) == 1)
             {
-                key.SetValue("MouseThreshold1", 6);
-                key.SetValue("MouseThreshold2", 16);
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Mouse", true))
+                {
+                    key.SetValue("MouseThreshold1", 6, RegistryValueKind.String);
+                    key.SetValue("MouseThreshold2", 10, RegistryValueKind.String);
+                    key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 15, 110, 00, 00, 00, 00, 00, 00, 00, 40, 01, 00, 00, 00, 00, 00, 29, 220, 03, 00, 00, 00, 00, 00, 00, 00, 28, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+                    key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 253, 11, 01, 00, 00, 00, 00, 00, 00, 24, 04, 00, 00, 00, 00, 00, 00, 252, 12, 00, 00, 00, 00, 00, 00, 192, 187, 01, 00, 00, 00, 00 }, RegistryValueKind.Binary);
+                    key.Close();
+                }
+                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
             }
-            MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
         }
 
         private void button3_Click(object sender, EventArgs e)
