@@ -15,9 +15,9 @@ namespace CursorSpeed_0._1
         {
             try
             {
-                if (MessageBox.Show("Não me responsabilizo por qualquer dano ou alteração em seu Windows, Deseja fazer 1 ponto de restauração? ", "CursorSpeed",MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("Não me responsabilizo por qualquer dano ou alteração em seu Windows, Deseja fazer 1 ponto de restauração? ", "CursorSpeed", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    using(Process process = new Process())
+                    using (Process process = new Process())
                     {
                         process.StartInfo.FileName = "rstrui.exe";
                         process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
@@ -28,7 +28,7 @@ namespace CursorSpeed_0._1
                 InitializeComponent();
                 new Thread(new ThreadStart(LoadInfo)).Start();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -253,6 +253,12 @@ namespace CursorSpeed_0._1
                 r = r.Replace("NT 5.2.3790", "Server 2003");
             }
             return r;
+        }
+
+        private void Speed_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MouseOption.SetMouseSpeed(InfoCursor.GetOldSensi);
+            MouseOption.SetPoimprovepointer(Convert.ToInt32(InfoCursor.GetPointerPerfect));
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CursorSpeed_0._1.SPI
+﻿namespace CursorSpeed_0._1.SPI
 {
     public enum EnumParameters
     {
