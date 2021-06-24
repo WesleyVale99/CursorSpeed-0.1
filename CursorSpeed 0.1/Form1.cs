@@ -260,5 +260,15 @@ namespace CursorSpeed_0._1
             MouseOption.SetMouseSpeed(InfoCursor.GetOldSensi);
             MouseOption.SetPoimprovepointer(Convert.ToInt32(InfoCursor.GetPointerPerfect));
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.facebook.com/wesley.93131/");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.instagram.com/_wslyvale/");
+        }
     }
 }
