@@ -83,10 +83,10 @@ namespace CursorSpeed_0._1
         }
         public static void SetAcelerationKeyBoard(int count, int count1)
         {
-          //  IntPtr ptr = new IntPtr(count);
+            IntPtr ptr = new IntPtr(count);
             IntPtr ptr1 = new IntPtr(count1);
 
-          //  SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDSPEED, 0, ptr, 0);
+            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDSPEED, 0, ptr, 0);
             SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDDELAY, 0, ptr1, 0);
         }
     }
