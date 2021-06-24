@@ -77,7 +77,6 @@ namespace CursorSpeed_0._1
             mouseParams[1] = 0;
             mouseParams[2] = value;
             int vay = SystemParametersInfo((int)EnumParameters.SPI_SETMOUSE, 0, GCHandle.Alloc(mouseParams, GCHandleType.Pinned).AddrOfPinnedObject(), 1);
-            MessageBox.Show(vay.ToString());
             return vay;
         }
         public static void SetPointerAcelerarion(int x, int y)

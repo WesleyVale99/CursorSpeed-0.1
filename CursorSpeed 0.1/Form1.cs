@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -12,8 +13,25 @@ namespace CursorSpeed_0._1
         public bool regular = false;
         public Speed()
         {
-            InitializeComponent();
-            new Thread(new ThreadStart(LoadInfo)).Start();
+            try
+            {
+                if (MessageBox.Show("Não me responsabilizo por qualquer dano ou alteração em seu Windows, Deseja fazer 1 ponto de restauração? ", "CursorSpeed",MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    using(Process process = new Process())
+                    {
+                        process.StartInfo.FileName = "rstrui.exe";
+                        process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                        process.Start();
+                        process.Close();
+                    }
+                }
+                InitializeComponent();
+                new Thread(new ThreadStart(LoadInfo)).Start();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,6 +40,7 @@ namespace CursorSpeed_0._1
         }
         private void LoadInfo()
         {
+
             InfoCursor.GetOldSensi = MouseOption.GetMouseSpeed();
             InfoCursor.GetPointerAceleration = MouseOption.GetPointerAcelerarion();
             InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
@@ -50,17 +69,17 @@ namespace CursorSpeed_0._1
                 {
                     MouseOption.SetMouseSpeed(trackBar1.Value);
                     label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
-                    MessageBox.Show("Função Alterada com sucesso.");
+                    MessageBox.Show("Função Alterada com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // WindowState = FormWindowState.Minimized;
                 }
                 else
                 {
-                    MessageBox.Show("Você precisa realizar alguma função para ocorrer a mudança.");
+                    MessageBox.Show("Você precisa realizar alguma função para ocorrer a mudança.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Escolha um botão de suspender nas configurações.");
+                MessageBox.Show("Escolha um botão de suspender nas configurações.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -152,7 +171,7 @@ namespace CursorSpeed_0._1
                         if (isRegistry)
                         {
                             toolStripComboBox1.Enabled = false;
-                            MessageBox.Show(string.Format("Tecla suspender adicionada com sucesso. {0}", (Keys)value));
+                            MessageBox.Show("Tecla suspender adicionada com sucesso. ", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             break;
                         }
                     }
@@ -175,7 +194,7 @@ namespace CursorSpeed_0._1
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 38, 00, 00, 00, 00, 00, 00, 00, 70, 00, 00, 00, 00, 00, 00, 00, 168, 00, 00, 00, 00, 00, 00, 00, 224, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
-                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
+                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -195,7 +214,7 @@ namespace CursorSpeed_0._1
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 253, 11, 01, 00, 00, 00, 00, 00, 00, 24, 04, 00, 00, 00, 00, 00, 00, 252, 12, 00, 00, 00, 00, 00, 00, 192, 187, 01, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
-                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"));
+                MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -204,11 +223,11 @@ namespace CursorSpeed_0._1
             if (InfoCursor.CheckKeyboard)
             {
                 MouseOption.SetAcelerationKeyBoard(0, 0);
-                MessageBox.Show("Função Alterada com sucesso.");
+                MessageBox.Show("Função Alterada com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Você já alterou essa função.");
+                MessageBox.Show("Você já alterou essa função.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public static string Windows()
