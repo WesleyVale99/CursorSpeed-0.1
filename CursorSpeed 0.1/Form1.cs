@@ -36,7 +36,8 @@ namespace CursorSpeed_0._1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChangerFctn();
+            MouseOption.SetAcelerationKeyBoard(1, 1);
+            //ChangerFctn();
         }
         private void LoadInfo()
         {
@@ -214,6 +215,12 @@ namespace CursorSpeed_0._1
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 253, 11, 01, 00, 00, 00, 00, 00, 00, 24, 04, 00, 00, 00, 00, 00, 00, 252, 12, 00, 00, 00, 00, 00, 00, 192, 187, 01, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Keyboard", true))
+                {
+                    key.SetValue("KeyboardDelay", 2, RegistryValueKind.String);
+                    key.SetValue("KeyboardSpeed", 15, RegistryValueKind.String);
+                    key.Close();
+                }
                 MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -222,7 +229,7 @@ namespace CursorSpeed_0._1
         {
             if (InfoCursor.CheckKeyboard)
             {
-                MouseOption.SetAcelerationKeyBoard(0, 0);
+                MouseOption.SetAcelerationKeyBoard(0, 3);
                 MessageBox.Show("Função Alterada com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

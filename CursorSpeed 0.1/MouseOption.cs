@@ -1,11 +1,6 @@
 ﻿using CursorSpeed_0._1.SPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CursorSpeed_0._1
 {
@@ -88,11 +83,11 @@ namespace CursorSpeed_0._1
         }
         public static void SetAcelerationKeyBoard(int count, int count1)
         {
-            IntPtr ptr = new IntPtr(count);
+          //  IntPtr ptr = new IntPtr(count);
             IntPtr ptr1 = new IntPtr(count1);
 
-            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDSPEED, 0, ptr, 1);
-            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDDELAY, 0, ptr1, 1);
+          //  SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDSPEED, 0, ptr, 0);
+            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDDELAY, 0, ptr1, 0);
         }
     }
 }
