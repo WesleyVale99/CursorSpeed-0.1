@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -40,12 +41,11 @@ namespace CursorSpeed_0._1
         }
         private void LoadInfo()
         {
-
             InfoCursor.GetOldSensi = MouseOption.GetMouseSpeed();
             InfoCursor.GetPointerAceleration = MouseOption.GetPointerAcelerarion();
             InfoCursor.GetPointerPerfect = MouseOption.GetPoimprovepointer();
             label1.Text = string.Format("Ponteiro antigo: {0}", InfoCursor.GetOldSensi);
-            InfoCursor.CheckKeyboard = MouseOption.GetAcelerationKeyBoard() > 0 || MouseOption.GetDelayKeyBoard() > 0;
+            InfoCursor.CheckKeyboard = MouseOption.GetAcelerationKeyBoard() > 0 || MouseOption.GetDelayKeyBoard() < 4;
             if (Windows().Contains("Windows 7") ||
                 Windows().Contains("Windows XP") ||
                 Windows().Contains("Windows 2000") ||
@@ -82,10 +82,9 @@ namespace CursorSpeed_0._1
                 MessageBox.Show("Escolha um botão de suspender nas configurações.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void Speed_MouseMove(object sender, MouseEventArgs e)
         {
-            label6.Text = "Position Test: " + Cursor.Position;
+            label6.Text = string.Format("{0} {1}", Cursor.Position, Cursor.Current);
         }
 
         private void button1_KeyDown(object sender, KeyEventArgs e)
@@ -193,6 +192,14 @@ namespace CursorSpeed_0._1
                     key.SetValue("SmoothMouseXCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 240, 255, 15, 00, 00, 00, 00, 00, 224, 255, 31, 00, 00, 00, 00, 00, 208, 255, 47, 00, 00, 00, 00, 00, 192, 255, 63, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 38, 00, 00, 00, 00, 00, 00, 00, 70, 00, 00, 00, 00, 00, 00, 00, 168, 00, 00, 00, 00, 00, 00, 00, 224, 00, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
+                }
+                if (InfoCursor.CheckKeyboard)
+                {
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Keyboard", true))
+                    {
+                        key.SetValue("KeyboardDelay", 3, RegistryValueKind.String);
+                        key.Close();
+                    }
                 }
                 MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
