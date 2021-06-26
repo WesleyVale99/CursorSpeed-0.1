@@ -277,5 +277,20 @@ namespace CursorSpeed_0._1
         {
             Process.Start("https://www.instagram.com/_wslyvale/");
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/WesleyVale99");
+        }
+
+        private void label5_MouseMove(object sender, MouseEventArgs e)
+        {
+            label5.ForeColor = Color.Blue;
+        }
+
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            label5.ForeColor = Color.Black;
+        }
     }
 }

@@ -125,6 +125,9 @@ namespace CursorSpeed_0._1
             this.label5.Size = new System.Drawing.Size(168, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "https://github.com/WesleyVale99";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.MouseLeave += new System.EventHandler(this.label5_MouseLeave);
+            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label5_MouseMove);
             // 
             // groupBox1
             // 
