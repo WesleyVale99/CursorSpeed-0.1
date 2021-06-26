@@ -31,30 +31,30 @@ namespace CursorSpeed_0._1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Speed));
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnSetSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.botãoSuspenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSetMouse = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnSetBackup = new System.Windows.Forms.Button();
+            this.BtnSetKeyboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -69,16 +69,16 @@ namespace CursorSpeed_0._1
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trackBar1_KeyDown);
             // 
-            // button1
+            // BtnSetSave
             // 
-            this.button1.Location = new System.Drawing.Point(354, 235);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
+            this.BtnSetSave.Location = new System.Drawing.Point(354, 235);
+            this.BtnSetSave.Name = "BtnSetSave";
+            this.BtnSetSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnSetSave.TabIndex = 1;
+            this.BtnSetSave.Text = "Salvar";
+            this.BtnSetSave.UseVisualStyleBackColor = true;
+            this.BtnSetSave.Click += new System.EventHandler(this.button1_Click);
+            this.BtnSetSave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // label1
             // 
@@ -138,6 +138,28 @@ namespace CursorSpeed_0._1
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CursorSpeed_0._1.Properties.Resources.ClipartKey_243923;
+            this.pictureBox2.Location = new System.Drawing.Point(69, 123);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 44);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 16;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CursorSpeed_0._1.Properties.Resources.searchpng_com_splash_facebook_icon_png_image_free_download;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 106);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 73);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -181,21 +203,21 @@ namespace CursorSpeed_0._1
             this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
             // 
-            // button2
+            // btnSetMouse
             // 
-            this.button2.Location = new System.Drawing.Point(12, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Aceleração do mouse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSetMouse.Location = new System.Drawing.Point(12, 85);
+            this.btnSetMouse.Name = "btnSetMouse";
+            this.btnSetMouse.Size = new System.Drawing.Size(129, 23);
+            this.btnSetMouse.TabIndex = 13;
+            this.btnSetMouse.Text = "Aceleração do mouse";
+            this.btnSetMouse.UseVisualStyleBackColor = true;
+            this.btnSetMouse.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.btnSetMouse);
+            this.groupBox2.Controls.Add(this.BtnSetBackup);
+            this.groupBox2.Controls.Add(this.BtnSetKeyboard);
             this.groupBox2.Location = new System.Drawing.Point(293, 40);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(147, 123);
@@ -203,47 +225,25 @@ namespace CursorSpeed_0._1
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Corrigir";
             // 
-            // button4
+            // BtnSetBackup
             // 
-            this.button4.Location = new System.Drawing.Point(12, 27);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(129, 23);
-            this.button4.TabIndex = 15;
-            this.button4.Text = "Padrão";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.BtnSetBackup.Location = new System.Drawing.Point(12, 27);
+            this.BtnSetBackup.Name = "BtnSetBackup";
+            this.BtnSetBackup.Size = new System.Drawing.Size(129, 23);
+            this.BtnSetBackup.TabIndex = 15;
+            this.BtnSetBackup.Text = "Padrão";
+            this.BtnSetBackup.UseVisualStyleBackColor = true;
+            this.BtnSetBackup.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // BtnSetKeyboard
             // 
-            this.button3.Location = new System.Drawing.Point(11, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Aceleração do Teclado";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CursorSpeed_0._1.Properties.Resources.ClipartKey_243923;
-            this.pictureBox2.Location = new System.Drawing.Point(69, 123);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 44);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 16;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CursorSpeed_0._1.Properties.Resources.searchpng_com_splash_facebook_icon_png_image_free_download;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 106);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 73);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.BtnSetKeyboard.Location = new System.Drawing.Point(11, 56);
+            this.BtnSetKeyboard.Name = "BtnSetKeyboard";
+            this.BtnSetKeyboard.Size = new System.Drawing.Size(129, 23);
+            this.BtnSetKeyboard.TabIndex = 14;
+            this.BtnSetKeyboard.Text = "Aceleração do Teclado";
+            this.BtnSetKeyboard.UseVisualStyleBackColor = true;
+            this.BtnSetKeyboard.Click += new System.EventHandler(this.button3_Click);
             // 
             // Speed
             // 
@@ -255,7 +255,7 @@ namespace CursorSpeed_0._1
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnSetSave);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -273,11 +273,11 @@ namespace CursorSpeed_0._1
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +286,7 @@ namespace CursorSpeed_0._1
         #endregion
 
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnSetSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -298,10 +298,10 @@ namespace CursorSpeed_0._1
         private System.Windows.Forms.ToolStripMenuItem configuraçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem botãoSuspenderToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSetMouse;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnSetKeyboard;
+        private System.Windows.Forms.Button BtnSetBackup;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

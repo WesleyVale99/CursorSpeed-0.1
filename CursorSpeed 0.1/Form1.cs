@@ -52,7 +52,7 @@ namespace CursorSpeed_0._1
                 Windows().Contains("Windows 95") ||
                Windows().Contains("Windows 98"))
             {
-                button2.Enabled = false;
+                btnSetMouse.Enabled = false;
             }
         }
 
