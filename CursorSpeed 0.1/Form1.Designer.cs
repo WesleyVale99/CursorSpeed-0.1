@@ -46,17 +46,17 @@ namespace CursorSpeed_0._1
             this.configuraçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.botãoSuspenderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.botãoParaDePartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.limpezarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otimizarRamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSetMouse = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BtnSetBackup = new System.Windows.Forms.Button();
             this.BtnSetKeyboard = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.botãoParaDePartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
-            this.limpezarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otimizarRamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pastasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -205,7 +205,7 @@ namespace CursorSpeed_0._1
             this.botãoSuspenderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1});
             this.botãoSuspenderToolStripMenuItem.Name = "botãoSuspenderToolStripMenuItem";
-            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.botãoSuspenderToolStripMenuItem.Text = "Botão Suspender";
             // 
             // toolStripComboBox1
@@ -215,6 +215,45 @@ namespace CursorSpeed_0._1
             this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
             this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
+            // 
+            // botãoParaDePartidaToolStripMenuItem
+            // 
+            this.botãoParaDePartidaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox2});
+            this.botãoParaDePartidaToolStripMenuItem.Name = "botãoParaDePartidaToolStripMenuItem";
+            this.botãoParaDePartidaToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.botãoParaDePartidaToolStripMenuItem.Text = "Botão Parada de Partida";
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 23);
+            this.toolStripComboBox2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
+            this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click);
+            // 
+            // limpezarToolStripMenuItem
+            // 
+            this.limpezarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.otimizarRamToolStripMenuItem,
+            this.pastasToolStripMenuItem});
+            this.limpezarToolStripMenuItem.Name = "limpezarToolStripMenuItem";
+            this.limpezarToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.limpezarToolStripMenuItem.Text = "Limpezar";
+            // 
+            // otimizarRamToolStripMenuItem
+            // 
+            this.otimizarRamToolStripMenuItem.Name = "otimizarRamToolStripMenuItem";
+            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otimizarRamToolStripMenuItem.Text = "Otimizar Ram";
+            this.otimizarRamToolStripMenuItem.Click += new System.EventHandler(this.otimizarRamToolStripMenuItem_Click);
+            // 
+            // pastasToolStripMenuItem
+            // 
+            this.pastasToolStripMenuItem.Name = "pastasToolStripMenuItem";
+            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastasToolStripMenuItem.Text = "Otimizar PC";
+            this.pastasToolStripMenuItem.Click += new System.EventHandler(this.pastasToolStripMenuItem_Click);
             // 
             // btnSetMouse
             // 
@@ -273,45 +312,6 @@ namespace CursorSpeed_0._1
             this.checkBox1.Text = "Beep";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // botãoParaDePartidaToolStripMenuItem
-            // 
-            this.botãoParaDePartidaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox2});
-            this.botãoParaDePartidaToolStripMenuItem.Name = "botãoParaDePartidaToolStripMenuItem";
-            this.botãoParaDePartidaToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.botãoParaDePartidaToolStripMenuItem.Text = "Botão Para de Partida";
-            // 
-            // toolStripComboBox2
-            // 
-            this.toolStripComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBox2.Name = "toolStripComboBox2";
-            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 23);
-            this.toolStripComboBox2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
-            this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click);
-            // 
-            // limpezarToolStripMenuItem
-            // 
-            this.limpezarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.otimizarRamToolStripMenuItem,
-            this.pastasToolStripMenuItem});
-            this.limpezarToolStripMenuItem.Name = "limpezarToolStripMenuItem";
-            this.limpezarToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.limpezarToolStripMenuItem.Text = "Limpezar";
-            // 
-            // otimizarRamToolStripMenuItem
-            // 
-            this.otimizarRamToolStripMenuItem.Name = "otimizarRamToolStripMenuItem";
-            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.otimizarRamToolStripMenuItem.Text = "Otimizar Ram";
-            this.otimizarRamToolStripMenuItem.Click += new System.EventHandler(this.otimizarRamToolStripMenuItem_Click);
-            // 
-            // pastasToolStripMenuItem
-            // 
-            this.pastasToolStripMenuItem.Name = "pastasToolStripMenuItem";
-            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pastasToolStripMenuItem.Text = "Otimizar PC";
-            this.pastasToolStripMenuItem.Click += new System.EventHandler(this.pastasToolStripMenuItem_Click);
-            // 
             // Speed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,7 +334,7 @@ namespace CursorSpeed_0._1
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Speed";
-            this.Text = "Cursor Speed 0.5";
+            this.Text = "Cursor Speed 1.1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Speed_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Speed_KeyDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Speed_MouseMove);
