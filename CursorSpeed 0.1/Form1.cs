@@ -11,6 +11,7 @@ namespace CursorSpeed_0._1
 {
     public partial class Speed : Form
     {
+        public string Button = "none";
         public bool regular = false;
         public Speed()
         {
@@ -65,6 +66,11 @@ namespace CursorSpeed_0._1
         {
             if (toolStripComboBox1.SelectedIndex > 0)
             {
+                if(Button == "none")
+                {
+                    MessageBox.Show("Escolha um botão de parada de partida nas configurações.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (InfoCursor.GetNewSensi > 0)
                 {
                     MouseOption.SetMouseSpeed(trackBar1.Value);
@@ -125,17 +131,24 @@ namespace CursorSpeed_0._1
                         MouseOption.SetMouseSpeed(10);
                         trackBar1.Value = 10;
                         label2.Text = string.Format("Ponteiro novo: {0}", 10);
-                        label4.Text = string.Concat(trackBar1.Value); Cursor.Hide();
+                        label4.Text = string.Concat(trackBar1.Value);
+                        SendKeys.Send("{F1}");
+                        // Cursor.Hide();
 
                     }
                     else
                     {
+                        if(checkBox1.Checked){
+                            for (int i = 0; i < 3; i++)
+                                Console.Beep();
+                        }
+                        SendKeys.Send("{F1}");
                         regular = false;
                         MouseOption.SetMouseSpeed(InfoCursor.GetNewSensi);
                         trackBar1.Value = InfoCursor.GetNewSensi;
                         label2.Text = string.Format("Ponteiro novo: {0}", InfoCursor.GetNewSensi);
                         label4.Text = string.Concat(trackBar1.Value);
-                        Cursor.Show();
+                        // Cursor.Show();
                     }
                 }
             }
@@ -177,7 +190,37 @@ namespace CursorSpeed_0._1
                 }
             }
         }
+        private void toolStripComboBox2_Click(object sender, EventArgs e)
+        {
+            if (toolStripComboBox2.Items.Count == 0)
+            {
+                var Keys = Enum.GetNames(typeof(Keys));
+                for (int i = 0; i < Keys.Length; i++)
+                {
+                    Application.DoEvents();
+                    toolStripComboBox2.Items.Add(Keys[i]);
+                }
+            }
+        }
 
+        private void toolStripComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (toolStripComboBox2.SelectedIndex > 0)
+            {
+                string[] Keys = Enum.GetNames(typeof(Keys));
+                for (int i = 0; i < Keys.Length; i++)
+                {
+                    Application.DoEvents();
+                    if (Keys[i] == (string)toolStripComboBox2.SelectedItem)
+                    {
+                        Button = Keys[i];
+                        toolStripComboBox2.Enabled = false;
+                        MessageBox.Show("Tecla parada de partida adicionada com sucesso. ", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
+                }
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             if (MouseOption.SetPoimprovepointer(0) == 1)
@@ -291,6 +334,14 @@ namespace CursorSpeed_0._1
         private void label5_MouseLeave(object sender, EventArgs e)
         {
             label5.ForeColor = Color.Black;
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            if(toolStripComboBox1.Text == "Digite...")
+            {
+                toolStripComboBox1.Text = "";
+            }
         }
     }
 }

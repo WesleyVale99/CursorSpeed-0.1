@@ -29,6 +29,7 @@ namespace CursorSpeed_0._1
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Speed));
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.BtnSetSave = new System.Windows.Forms.Button();
@@ -49,6 +50,10 @@ namespace CursorSpeed_0._1
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.BtnSetBackup = new System.Windows.Forms.Button();
             this.BtnSetKeyboard = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.botãoParaDePartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -185,7 +190,8 @@ namespace CursorSpeed_0._1
             // configuraçãoToolStripMenuItem
             // 
             this.configuraçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.botãoSuspenderToolStripMenuItem});
+            this.botãoSuspenderToolStripMenuItem,
+            this.botãoParaDePartidaToolStripMenuItem});
             this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
             this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.configuraçãoToolStripMenuItem.Text = "Configuração";
@@ -195,7 +201,7 @@ namespace CursorSpeed_0._1
             this.botãoSuspenderToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1});
             this.botãoSuspenderToolStripMenuItem.Name = "botãoSuspenderToolStripMenuItem";
-            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.botãoSuspenderToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.botãoSuspenderToolStripMenuItem.Text = "Botão Suspender";
             // 
             // toolStripComboBox1
@@ -248,11 +254,43 @@ namespace CursorSpeed_0._1
             this.BtnSetKeyboard.UseVisualStyleBackColor = true;
             this.BtnSetKeyboard.Click += new System.EventHandler(this.button3_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(383, 164);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(51, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Beep";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // botãoParaDePartidaToolStripMenuItem
+            // 
+            this.botãoParaDePartidaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox2});
+            this.botãoParaDePartidaToolStripMenuItem.Name = "botãoParaDePartidaToolStripMenuItem";
+            this.botãoParaDePartidaToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.botãoParaDePartidaToolStripMenuItem.Text = "Botão Para de Partida";
+            // 
+            // toolStripComboBox2
+            // 
+            this.toolStripComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBox2.Name = "toolStripComboBox2";
+            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 23);
+            this.toolStripComboBox2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
+            this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click);
+            // 
             // Speed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 311);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -307,6 +345,10 @@ namespace CursorSpeed_0._1
         private System.Windows.Forms.Button BtnSetBackup;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ToolStripMenuItem botãoParaDePartidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
     }
 }
 
