@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -342,6 +343,70 @@ namespace CursorSpeed_0._1
             {
                 toolStripComboBox1.Text = "";
             }
+        }
+
+        private void otimizarRamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GC.Collect(2, GCCollectionMode.Forced);
+            MessageBox.Show("Limpado com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void pastasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int clear = 0;
+            int NotClear = 0;
+
+            string MainPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            DirectoryInfo Temps = new DirectoryInfo(MainPath + @"\AppData\Local\Temp");
+            if (Temps.Exists)
+            {
+                FileInfo[] array1 = Temps.GetFiles();
+                for (int i = 0; i < array1.Length; i++)
+                {
+                    try
+                    {
+                        array1[i].Delete();
+                        clear++;
+                    }
+                    catch
+                    {
+                        NotClear++;
+                    }
+                }
+                DirectoryInfo[] array2 = Temps.GetDirectories();
+                for (int i = 0; i < array2.Length; i++)
+                {
+                    try
+                    {
+                        array2[i].Delete(true);
+                        clear++;
+                    }
+                    catch
+                    {
+                        NotClear++;
+                    }
+                }
+            }
+
+            DirectoryInfo Prefetch = new DirectoryInfo(@"c:\\windows\prefetch");
+            if (Prefetch.Exists)
+            {
+                FileInfo[] array1 = Prefetch.GetFiles();
+                for (int i = 0; i < array1.Length; i++)
+                {
+                    try
+                    {
+                        array1[i].Delete();
+                        clear++;
+                    }
+                    catch
+                    {
+                        NotClear++;
+                    }
+                }
+            }
+            MessageBox.Show(string.Format("Foram Limpados. {0} arquivos inuteis | não limpados {1}", clear, NotClear), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

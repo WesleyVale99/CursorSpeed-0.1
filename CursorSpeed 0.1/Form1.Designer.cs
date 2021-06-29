@@ -54,6 +54,9 @@ namespace CursorSpeed_0._1
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.botãoParaDePartidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
+            this.limpezarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otimizarRamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pastasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -191,7 +194,8 @@ namespace CursorSpeed_0._1
             // 
             this.configuraçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.botãoSuspenderToolStripMenuItem,
-            this.botãoParaDePartidaToolStripMenuItem});
+            this.botãoParaDePartidaToolStripMenuItem,
+            this.limpezarToolStripMenuItem});
             this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
             this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.configuraçãoToolStripMenuItem.Text = "Configuração";
@@ -285,6 +289,29 @@ namespace CursorSpeed_0._1
             this.toolStripComboBox2.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
             this.toolStripComboBox2.Click += new System.EventHandler(this.toolStripComboBox2_Click);
             // 
+            // limpezarToolStripMenuItem
+            // 
+            this.limpezarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.otimizarRamToolStripMenuItem,
+            this.pastasToolStripMenuItem});
+            this.limpezarToolStripMenuItem.Name = "limpezarToolStripMenuItem";
+            this.limpezarToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.limpezarToolStripMenuItem.Text = "Limpezar";
+            // 
+            // otimizarRamToolStripMenuItem
+            // 
+            this.otimizarRamToolStripMenuItem.Name = "otimizarRamToolStripMenuItem";
+            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otimizarRamToolStripMenuItem.Text = "Otimizar Ram";
+            this.otimizarRamToolStripMenuItem.Click += new System.EventHandler(this.otimizarRamToolStripMenuItem_Click);
+            // 
+            // pastasToolStripMenuItem
+            // 
+            this.pastasToolStripMenuItem.Name = "pastasToolStripMenuItem";
+            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastasToolStripMenuItem.Text = "Otimizar PC";
+            this.pastasToolStripMenuItem.Click += new System.EventHandler(this.pastasToolStripMenuItem_Click);
+            // 
             // Speed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,6 +376,9 @@ namespace CursorSpeed_0._1
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ToolStripMenuItem botãoParaDePartidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
+        private System.Windows.Forms.ToolStripMenuItem limpezarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otimizarRamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pastasToolStripMenuItem;
     }
 }
 
