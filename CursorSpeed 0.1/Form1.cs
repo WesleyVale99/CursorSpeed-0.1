@@ -348,7 +348,7 @@ namespace CursorSpeed_0._1
         private void otimizarRamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GC.Collect(2, GCCollectionMode.Forced);
-            MessageBox.Show("Limpado com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Limpado com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void pastasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -406,7 +406,7 @@ namespace CursorSpeed_0._1
                     }
                 }
             }
-            MessageBox.Show(string.Format("Foram Limpados. {0} arquivos inuteis | não limpados {1}", clear, NotClear), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(string.Format("Foram Limpados. {0} arquivos inuteis | não limpados {1}", clear, NotClear), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
