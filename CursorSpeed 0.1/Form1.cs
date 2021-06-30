@@ -337,14 +337,6 @@ namespace CursorSpeed_0._1
             label5.ForeColor = Color.Black;
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-            if(toolStripComboBox1.Text == "Digite...")
-            {
-                toolStripComboBox1.Text = "";
-            }
-        }
-
         private void otimizarRamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GC.Collect(2, GCCollectionMode.Forced);

@@ -239,7 +239,7 @@ namespace CursorSpeed_0._1
             this.pastasToolStripMenuItem});
             this.limpezarToolStripMenuItem.Name = "limpezarToolStripMenuItem";
             this.limpezarToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.limpezarToolStripMenuItem.Text = "Limpezar";
+            this.limpezarToolStripMenuItem.Text = "Limpeza";
             // 
             // otimizarRamToolStripMenuItem
             // 
