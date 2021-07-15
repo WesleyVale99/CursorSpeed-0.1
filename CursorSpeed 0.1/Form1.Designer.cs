@@ -57,6 +57,7 @@ namespace CursorSpeed_0._1
             this.BtnSetKeyboard = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -244,14 +245,14 @@ namespace CursorSpeed_0._1
             // otimizarRamToolStripMenuItem
             // 
             this.otimizarRamToolStripMenuItem.Name = "otimizarRamToolStripMenuItem";
-            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.otimizarRamToolStripMenuItem.Text = "Otimizar Ram";
             this.otimizarRamToolStripMenuItem.Click += new System.EventHandler(this.otimizarRamToolStripMenuItem_Click);
             // 
             // pastasToolStripMenuItem
             // 
             this.pastasToolStripMenuItem.Name = "pastasToolStripMenuItem";
-            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.pastasToolStripMenuItem.Text = "Otimizar PC";
             this.pastasToolStripMenuItem.Click += new System.EventHandler(this.pastasToolStripMenuItem_Click);
             // 
@@ -312,11 +313,22 @@ namespace CursorSpeed_0._1
             this.checkBox1.Text = "Beep";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(293, 163);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(88, 17);
+            this.checkBox2.TabIndex = 16;
+            this.checkBox2.Text = "Efeito Mouse";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Speed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 311);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -379,6 +391,7 @@ namespace CursorSpeed_0._1
         private System.Windows.Forms.ToolStripMenuItem limpezarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otimizarRamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastasToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

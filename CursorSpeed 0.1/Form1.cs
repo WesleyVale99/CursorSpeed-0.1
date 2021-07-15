@@ -133,6 +133,7 @@ namespace CursorSpeed_0._1
                         trackBar1.Value = 10;
                         label2.Text = string.Format("Ponteiro novo: {0}", 10);
                         label4.Text = string.Concat(trackBar1.Value);
+                        if(checkBox2.Checked)
                         SendKeys.Send("{F1}");
                         // Cursor.Hide();
 
@@ -143,7 +144,8 @@ namespace CursorSpeed_0._1
                             for (int i = 0; i < 3; i++)
                                 Console.Beep();
                         }
-                        SendKeys.Send("{F1}");
+                        if (checkBox2.Checked)
+                            SendKeys.Send("{F1}");
                         regular = false;
                         MouseOption.SetMouseSpeed(InfoCursor.GetNewSensi);
                         trackBar1.Value = InfoCursor.GetNewSensi;
@@ -348,55 +350,139 @@ namespace CursorSpeed_0._1
             int clear = 0;
             int NotClear = 0;
 
-            string MainPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-            DirectoryInfo Temps = new DirectoryInfo(MainPath + @"\AppData\Local\Temp");
-            if (Temps.Exists)
+            string[] GetValue = new string[5] 
             {
-                FileInfo[] array1 = Temps.GetFiles();
-                for (int i = 0; i < array1.Length; i++)
+                "temp", "tmp", "history", "cookies", "recent"
+            };
+
+            string MainPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            try
+            {
+                DirectoryInfo Temps = new DirectoryInfo(MainPath + @"\AppData\Local\" + GetValue[0]);
+                if (Temps.Exists)
                 {
-                    try
+                    FileInfo[] array1 = Temps.GetFiles();
+                    for (int i = 0; i < array1.Length; i++)
                     {
-                        array1[i].Delete();
-                        clear++;
+                        try
+                        {
+                            array1[i].Delete();
+                            clear++;
+                        }
+                        catch
+                        {
+                            NotClear++;
+                        }
                     }
-                    catch
+                    DirectoryInfo[] array2 = Temps.GetDirectories();
+                    for (int i = 0; i < array2.Length; i++)
                     {
-                        NotClear++;
-                    }
-                }
-                DirectoryInfo[] array2 = Temps.GetDirectories();
-                for (int i = 0; i < array2.Length; i++)
-                {
-                    try
-                    {
-                        array2[i].Delete(true);
-                        clear++;
-                    }
-                    catch
-                    {
-                        NotClear++;
+                        try
+                        {
+                            array2[i].Delete(true);
+                            clear++;
+                        }
+                        catch
+                        {
+                            NotClear++;
+                        }
                     }
                 }
             }
-
-            DirectoryInfo Prefetch = new DirectoryInfo(@"c:\\windows\prefetch");
-            if (Prefetch.Exists)
+            catch
             {
-                FileInfo[] array1 = Prefetch.GetFiles();
-                for (int i = 0; i < array1.Length; i++)
+
+            }
+           
+            try
+            {
+                DirectoryInfo Prefetch = new DirectoryInfo(@"c:\\windows\prefetch");
+                if (Prefetch.Exists)
                 {
-                    try
+                    FileInfo[] array1 = Prefetch.GetFiles();
+                    for (int i = 0; i < array1.Length; i++)
                     {
-                        array1[i].Delete();
-                        clear++;
-                    }
-                    catch
-                    {
-                        NotClear++;
+                        try
+                        {
+                            array1[i].Delete();
+                            clear++;
+                        }
+                        catch
+                        {
+                            NotClear++;
+                        }
                     }
                 }
+            }
+            catch
+            {
+
+            }
+
+            for(int i = 0; i < GetValue.Length; i++)
+            {
+                try
+                {
+                    DirectoryInfo Temps = new DirectoryInfo(@"c:\\windows\" + GetValue[i]);
+                    if (Temps.Exists)
+                    {
+                        FileInfo[] array1 = Temps.GetFiles();
+                        for (int j = 0; j < array1.Length; j++)
+                        {
+                            try
+                            {
+                                array1[j].Delete();
+                                clear++;
+                            }
+                            catch
+                            {
+                                NotClear++;
+                            }
+                        }
+                        DirectoryInfo[] array2 = Temps.GetDirectories();
+                        for (int j = 0; j < array2.Length; j++)
+                        {
+                            try
+                            {
+                                array2[j].Delete(true);
+                                clear++;
+                            }
+                            catch
+                            {
+                                NotClear++;
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+
+            try
+            {
+                DirectoryInfo Temps = new DirectoryInfo(@"C:\ProgramData\BlueStacks_nxt\Logs");
+                if (Temps.Exists)
+                {
+                    FileInfo[] array1 = Temps.GetFiles();
+                    for (int j = 0; j < array1.Length; j++)
+                    {
+                        try
+                        {
+                            array1[j].Delete();
+                            clear++;
+                        }
+                        catch
+                        {
+                            NotClear++;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
             }
             MessageBox.Show(string.Format("Foram Limpados. {0} arquivos inuteis | não limpados {1}", clear, NotClear), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
