@@ -350,7 +350,7 @@ namespace CursorSpeed_0._1
             int clear = 0;
             int NotClear = 0;
 
-            string[] GetValue = new string[5] 
+            string[] Data = new string[5] 
             {
                 "temp", "tmp", "history", "cookies", "recent"
             };
@@ -358,7 +358,7 @@ namespace CursorSpeed_0._1
             string MainPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             try
             {
-                DirectoryInfo Temps = new DirectoryInfo(MainPath + @"\AppData\Local\" + GetValue[0]);
+                DirectoryInfo Temps = new DirectoryInfo(MainPath + @"\AppData\Local\" + Data[0]);
                 if (Temps.Exists)
                 {
                     FileInfo[] array1 = Temps.GetFiles();
@@ -419,11 +419,11 @@ namespace CursorSpeed_0._1
 
             }
 
-            for(int i = 0; i < GetValue.Length; i++)
+            for(int i = 0; i < Data.Length; i++)
             {
                 try
                 {
-                    DirectoryInfo Temps = new DirectoryInfo(@"c:\\windows\" + GetValue[i]);
+                    DirectoryInfo Temps = new DirectoryInfo(@"c:\\windows\" + Data[i]);
                     if (Temps.Exists)
                     {
                         FileInfo[] array1 = Temps.GetFiles();
