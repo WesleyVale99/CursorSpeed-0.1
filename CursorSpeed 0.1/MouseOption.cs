@@ -14,7 +14,16 @@ namespace CursorSpeed_0._1
         public static extern int SystemParametersInfo(int uAction, int uParam, IntPtr lpvParam, int fuWinIni);
         [DllImport("user32.dll", EntryPoint = "SystemParametersInfo", SetLastError = false)]
         private static extern bool SystemParametersInfo(uint action, uint param, ref FILTERKEY vparam, uint init);
-
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public struct FILTERKEY
+        {
+            public uint cbSize;
+            public uint dwFlags;
+            public uint iWaitMSec;
+            public uint iDelayMSec;
+            public uint iRepeatMSec;
+            public uint iBounceMSec;
+        }
         public static int GetMouseSpeed()
         {
             IntPtr ptr = Marshal.AllocCoTaskMem(4);
@@ -81,16 +90,6 @@ namespace CursorSpeed_0._1
             mouseParams[1] = y;
             mouseParams[2] = 0;
             SystemParametersInfo((int)EnumParameters.SPI_SETMOUSE, 0, GCHandle.Alloc(mouseParams, GCHandleType.Pinned).AddrOfPinnedObject(), 1);
-        }
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public struct FILTERKEY
-        {
-            public uint cbSize;
-            public uint dwFlags;
-            public uint iWaitMSec;
-            public uint iDelayMSec;
-            public uint iRepeatMSec;
-            public uint iBounceMSec;
         }
         public static bool SetAcelerationKeyBoard(uint Delay, uint Repeat, uint Flags, uint Wait)
         {
