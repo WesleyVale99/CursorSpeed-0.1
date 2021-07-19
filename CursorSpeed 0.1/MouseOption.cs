@@ -6,13 +6,14 @@ namespace CursorSpeed_0._1
 {
     public class MouseOption
     {
+        private static uint FKEYSize = sizeof(uint) * 6;
+        public static FILTERKEY StartupFilterKeys;
         public static int[] mouseParams = new int[3];
+
         [DllImport("user32.dll")]
         public static extern int SystemParametersInfo(int uAction, int uParam, IntPtr lpvParam, int fuWinIni);
-
-        [DllImport("kernel32.dll")]
-        public static extern int GetLastError();
-
+        [DllImport("user32.dll", EntryPoint = "SystemParametersInfo", SetLastError = false)]
+        private static extern bool SystemParametersInfo(uint action, uint param, ref FILTERKEY vparam, uint init);
 
         public static int GetMouseSpeed()
         {
@@ -81,13 +82,26 @@ namespace CursorSpeed_0._1
             mouseParams[2] = 0;
             SystemParametersInfo((int)EnumParameters.SPI_SETMOUSE, 0, GCHandle.Alloc(mouseParams, GCHandleType.Pinned).AddrOfPinnedObject(), 1);
         }
-        public static void SetAcelerationKeyBoard(int count, int count1)
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public struct FILTERKEY
         {
-            IntPtr ptr = new IntPtr(count);
-            IntPtr ptr1 = new IntPtr(count1);
+            public uint cbSize;
+            public uint dwFlags;
+            public uint iWaitMSec;
+            public uint iDelayMSec;
+            public uint iRepeatMSec;
+            public uint iBounceMSec;
+        }
+        public static bool SetAcelerationKeyBoard(uint Delay, uint Repeat, uint Flags, uint Wait)
+        {
+            StartupFilterKeys.cbSize = FKEYSize;
+            StartupFilterKeys.iWaitMSec = Wait;
+            StartupFilterKeys.iDelayMSec = Delay;
+            StartupFilterKeys.iRepeatMSec = Repeat;
+            StartupFilterKeys.dwFlags = Flags;
+           
 
-            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDSPEED, 0, ptr, 0);
-            SystemParametersInfo((int)EnumParameters.SPI_SETKEYBOARDDELAY, 0, ptr1, 0);
+            return SystemParametersInfo((int)EnumParameters.SPI_SETFILTERKEYS, FKEYSize, ref StartupFilterKeys, 0);
         }
     }
 }

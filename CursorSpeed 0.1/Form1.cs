@@ -67,7 +67,7 @@ namespace CursorSpeed_0._1
         {
             if (toolStripComboBox1.SelectedIndex > 0)
             {
-                if(Button == "none")
+                if (Button == "none")
                 {
                     MessageBox.Show("Escolha um botão de parada de partida nas configurações.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -133,14 +133,15 @@ namespace CursorSpeed_0._1
                         trackBar1.Value = 10;
                         label2.Text = string.Format("Ponteiro novo: {0}", 10);
                         label4.Text = string.Concat(trackBar1.Value);
-                        if(checkBox2.Checked)
-                        SendKeys.Send("{F1}");
+                        if (checkBox2.Checked)
+                            SendKeys.Send("{F1}");
                         // Cursor.Hide();
 
                     }
                     else
                     {
-                        if(checkBox1.Checked){
+                        if (checkBox1.Checked)
+                        {
                             for (int i = 0; i < 3; i++)
                                 Console.Beep();
                         }
@@ -267,11 +268,9 @@ namespace CursorSpeed_0._1
                     key.SetValue("SmoothMouseYCurve", new byte[] { 00, 00, 00, 00, 00, 00, 00, 00, 253, 11, 01, 00, 00, 00, 00, 00, 00, 24, 04, 00, 00, 00, 00, 00, 00, 252, 12, 00, 00, 00, 00, 00, 00, 192, 187, 01, 00, 00, 00, 00 }, RegistryValueKind.Binary);
                     key.Close();
                 }
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Keyboard", true))
+                if (MouseOption.SetAcelerationKeyBoard(1000, 500, 122, 1000))
                 {
-                    key.SetValue("KeyboardDelay", 2, RegistryValueKind.String);
-                    key.SetValue("KeyboardSpeed", 15, RegistryValueKind.String);
-                    key.Close();
+                    MessageBox.Show(string.Format("Teclado resetado de fabrica!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 MessageBox.Show(string.Format("Você vai precisar reiniciar seu pc!"), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -281,8 +280,12 @@ namespace CursorSpeed_0._1
         {
             if (InfoCursor.CheckKeyboard)
             {
-                MouseOption.SetAcelerationKeyBoard(0, 3);
-                MessageBox.Show("Função Alterada com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MouseOption.SetAcelerationKeyBoard(150, 5, 3, 0))
+                    MessageBox.Show("Função Alterada com sucesso.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("Error desconhecido.", "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -350,7 +353,7 @@ namespace CursorSpeed_0._1
             int clear = 0;
             int NotClear = 0;
 
-            string[] Data = new string[5] 
+            string[] Data = new string[5]
             {
                 "temp", "tmp", "history", "cookies", "recent"
             };
@@ -393,7 +396,7 @@ namespace CursorSpeed_0._1
             {
 
             }
-           
+
             try
             {
                 DirectoryInfo Prefetch = new DirectoryInfo(@"c:\\windows\prefetch");
@@ -419,7 +422,7 @@ namespace CursorSpeed_0._1
 
             }
 
-            for(int i = 0; i < Data.Length; i++)
+            for (int i = 0; i < Data.Length; i++)
             {
                 try
                 {

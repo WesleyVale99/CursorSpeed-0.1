@@ -290,7 +290,7 @@ namespace CursorSpeed_0._1
             // 
             // BtnSetKeyboard
             // 
-            this.BtnSetKeyboard.Location = new System.Drawing.Point(11, 56);
+            this.BtnSetKeyboard.Location = new System.Drawing.Point(12, 56);
             this.BtnSetKeyboard.Name = "BtnSetKeyboard";
             this.BtnSetKeyboard.Size = new System.Drawing.Size(129, 23);
             this.BtnSetKeyboard.TabIndex = 14;
