@@ -489,5 +489,19 @@ namespace CursorSpeed_0._1
             }
             MessageBox.Show(string.Format("Foram Limpados. {0} arquivos inuteis | não limpados {1}", clear, NotClear), "CursorSpeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void testarVelocidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using(Form2 form = new Form2())
+            {
+                if(form.ShowDialog() == DialogResult.OK)
+                {
+                    Enabled = false;
+                }
+                else {
+                    Enabled = true;
+                }
+            }
+        }
     }
 }

@@ -58,6 +58,8 @@ namespace CursorSpeed_0._1
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.tecladoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testarVelocidadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -145,7 +147,7 @@ namespace CursorSpeed_0._1
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(12, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(171, 176);
+            this.groupBox1.Size = new System.Drawing.Size(205, 176);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menu";
@@ -196,7 +198,8 @@ namespace CursorSpeed_0._1
             this.configuraçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.botãoSuspenderToolStripMenuItem,
             this.botãoParaDePartidaToolStripMenuItem,
-            this.limpezarToolStripMenuItem});
+            this.limpezarToolStripMenuItem,
+            this.tecladoToolStripMenuItem});
             this.configuraçãoToolStripMenuItem.Name = "configuraçãoToolStripMenuItem";
             this.configuraçãoToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.configuraçãoToolStripMenuItem.Text = "Configuração";
@@ -245,14 +248,14 @@ namespace CursorSpeed_0._1
             // otimizarRamToolStripMenuItem
             // 
             this.otimizarRamToolStripMenuItem.Name = "otimizarRamToolStripMenuItem";
-            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.otimizarRamToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.otimizarRamToolStripMenuItem.Text = "Otimizar Ram";
             this.otimizarRamToolStripMenuItem.Click += new System.EventHandler(this.otimizarRamToolStripMenuItem_Click);
             // 
             // pastasToolStripMenuItem
             // 
             this.pastasToolStripMenuItem.Name = "pastasToolStripMenuItem";
-            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.pastasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pastasToolStripMenuItem.Text = "Otimizar PC";
             this.pastasToolStripMenuItem.Click += new System.EventHandler(this.pastasToolStripMenuItem_Click);
             // 
@@ -323,6 +326,21 @@ namespace CursorSpeed_0._1
             this.checkBox2.Text = "Efeito Mouse";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
+            // tecladoToolStripMenuItem
+            // 
+            this.tecladoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testarVelocidadeToolStripMenuItem});
+            this.tecladoToolStripMenuItem.Name = "tecladoToolStripMenuItem";
+            this.tecladoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.tecladoToolStripMenuItem.Text = "Teclado";
+            // 
+            // testarVelocidadeToolStripMenuItem
+            // 
+            this.testarVelocidadeToolStripMenuItem.Name = "testarVelocidadeToolStripMenuItem";
+            this.testarVelocidadeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testarVelocidadeToolStripMenuItem.Text = "Testar Velocidade";
+            this.testarVelocidadeToolStripMenuItem.Click += new System.EventHandler(this.testarVelocidadeToolStripMenuItem_Click);
+            // 
             // Speed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,6 +410,8 @@ namespace CursorSpeed_0._1
         private System.Windows.Forms.ToolStripMenuItem otimizarRamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pastasToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.ToolStripMenuItem tecladoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testarVelocidadeToolStripMenuItem;
     }
 }
 
