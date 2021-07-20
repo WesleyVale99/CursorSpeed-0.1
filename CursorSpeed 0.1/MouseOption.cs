@@ -6,7 +6,7 @@ namespace CursorSpeed_0._1
 {
     public class MouseOption
     {
-        private static uint FKEYSize = sizeof(uint) * 6;
+        private static readonly uint FKEYSize = sizeof(uint) * 6;
         public static FILTERKEY StartupFilterKeys;
         public static int[] mouseParams = new int[3];
 

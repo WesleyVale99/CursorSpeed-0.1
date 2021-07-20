@@ -3,13 +3,13 @@ using System.Windows.Forms;
 
 namespace CursorSpeed_0._1
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
         [STAThread]
-        static void Main()
+      public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
