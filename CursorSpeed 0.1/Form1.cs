@@ -254,12 +254,12 @@ namespace CursorSpeed_0._1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MouseOption.SetMouseSpeed(10);
-            trackBar1.Value = 10;
-            label2.Text = string.Format("Ponteiro novo: {0}", trackBar1.Value);
-            label4.Text = string.Concat(trackBar1.Value);
             if (MouseOption.SetPoimprovepointer(1) == 1)
             {
+                MouseOption.SetMouseSpeed(10);
+                trackBar1.Value = 10;
+                label2.Text = string.Format("Ponteiro novo: {0}", trackBar1.Value);
+                label4.Text = string.Concat(trackBar1.Value);
                 using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Mouse", true))
                 {
                     key.SetValue("MouseThreshold1", 6, RegistryValueKind.String);
